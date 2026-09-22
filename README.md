@@ -1,45 +1,44 @@
-# 🛠️ Compilação e Execução com Makefile
+# 🛠️ Compilação e Execução (Makefile)
 
-Este projeto utiliza um **Makefile** para automatizar as etapas de compilação, ligação (linking) e execução do programa em C/C++. O Makefile garante que apenas os arquivos modificados sejam recompilados, otimizando o tempo de desenvolvimento.
+Este projeto utiliza um **Makefile** para automatizar o processo de compilação de todos os arquivos de código-fonte em linguagem C (`.c`) presentes na raiz do diretório.
+
+## ⚙️ Configurações do Compilador
+
+O processo de compilação segue as seguintes diretrizes estritas:
+* **Compilador utilizado:** `gcc`
+* **Padrão da linguagem:** C99 (`-std=c99`)
+* **Verificação de erros:** Ativada com alertas máximos (`-Wall -Wextra`) para garantir as boas práticas de programação.
+* **Depuração:** Inclui flags de debug (`-g`), permitindo o uso de ferramentas como o Valgrind ou GDB.
+
+---
 
 ## 📌 Comandos Disponíveis
 
-Abra o terminal na raiz do projeto (onde o arquivo `Makefile` está localizado) e utilize os comandos abaixo:
+Abra o terminal na pasta raiz do projeto e utilize os seguintes comandos:
 
-| Comando | Descrição |
+| Comando | Função |
 | :--- | :--- |
-| `make` ou `make all` | Compila o código-fonte, gera os arquivos objetos (`.o`) e cria o executável principal. |
-| `make run` | Compila o projeto (caso necessário) e executa o programa imediatamente. |
-| `make clean` | Remove todos os arquivos gerados pela compilação (objetos e o executável), limpando a pasta. |
-| `make rebuild`| Limpa o projeto e compila tudo do zero (equivalente a `make clean` seguido de `make`). |
+| `make` ou `make all` | **Compila o projeto.** Busca todos os arquivos `.c`, gera os arquivos objeto `.o` e cria o executável principal chamado `programa`. |
+| `make clean` | **Limpa o diretório.** Remove todos os arquivos objeto (`.o`) gerados e apaga o executável `programa`, deixando a pasta limpa. |
 
 ---
 
 ## 🚀 Como Usar (Passo a Passo)
 
-### 1. Compilar o Projeto
-Para compilar todos os arquivos do trabalho e gerar o executável:
+### 1. Compilar o Trabalho
+Para compilar o código de forma automatizada, execute:
 ```bash
 make
 ```
 
 ### 2. Executar o Programa
-Para rodar o programa diretamente pelo terminal após a compilação:
+Após a compilação, você pode rodar o executável gerado diretamente pelo terminal:
 ```bash
-make run
+./programa
 ```
 
 ### 3. Limpar Arquivos Temporários
-Antes de enviar o trabalho para o professor ou fazer um novo commit, é uma boa prática limpar os arquivos binários gerados para não poluir o repositório:
+Antes de fazer um `git commit` ou enviar o trabalho final, limpe os binários para não poluir o repositório:
 ```bash
 make clean
 ```
-
----
-
-## 📂 Estrutura de Pastas Esperada pelo Makefile
-
-Para que o Makefile funcione corretamente, certifique-se de que a estrutura do projeto siga o padrão abaixo:
-* `Includes/` -> Contém os arquivos de cabeçalho (`.h`).
-* `Src/` (ou a raiz) -> Contém os arquivos de código-fonte (`.c` ou `.cpp`).
-* `Gabarito-obj/` -> Pasta onde o Makefile costuma salvar os arquivos objetos `.o` intermediários.
